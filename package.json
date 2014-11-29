@@ -1,0 +1,68 @@
+{
+  "name": "recordrtc-nodejs",
+  "preferGlobal": true,
+  "version": "1.0.0",
+  "author": {
+    "name": "Muaz Khan",
+    "email": "muazkh@gmail.com"
+  },
+  "description": "Records audio/video separately as wav/webm. POST both files in single HttpPost-Request to Node.js (FormData). Node.js code saves both files into disk. Node.js code invokes ffmpeg to merge wav/webm in single webm file. The merged webm file's URL is returne",
+  "contributors": [
+    {
+      "name": "Muaz Khan",
+      "email": "muazkh@gmail.com"
+    }
+  ],
+  "scripts": {
+    "start": "node index.js"
+  },
+  "main": "./index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/muaz-khan/WebRTC-Experiment.git"
+  },
+  "keywords": [
+    "webrtc",
+    "javascript",
+    "RecordRTC",
+    "Node.js",
+    "ffmpeg",
+    "audio-recording",
+    "video-recording",
+    "gif-recording",
+    "audio/video recording",
+    "webp",
+    "webm",
+    "wav"
+  ],
+  "analyze": false,
+  "license": "MIT",
+  "engines": {
+    "node": ">=0.6"
+  },
+  "bugs": {
+    "url": "https://github.com/muaz-khan/WebRTC-Experiment/issues"
+  },
+  "homepage": "https://github.com/muaz-khan/WebRTC-Experiment/tree/master/RecordRTC/RecordRTC-to-Nodejs",
+  "_id": "recordrtc-nodejs@1.0.0",
+  "_from": "recordrtc-nodejs@",
+  "_shasum": "68c0539bef6de97fe04a2d92ef8dca1c3f21b727",
+  "_npmVersion": "1.4.9",
+  "_npmUser": {
+    "name": "muaz-khan",
+    "email": "muazkh@gmail.com"
+  },
+  "maintainers": [
+    {
+      "name": "muaz-khan",
+      "email": "muazkh@gmail.com"
+    }
+  ],
+  "dist": {
+    "shasum": "68c0539bef6de97fe04a2d92ef8dca1c3f21b727",
+    "tarball": "http://registry.npmjs.org/recordrtc-nodejs/-/recordrtc-nodejs-1.0.0.tgz"
+  },
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/recordrtc-nodejs/-/recordrtc-nodejs-1.0.0.tgz",
+  "readme": "ERROR: No README data found!"
+}
