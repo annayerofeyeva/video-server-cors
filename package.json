@@ -64,5 +64,8 @@
   },
   "directories": {},
   "_resolved": "https://registry.npmjs.org/recordrtc-nodejs/-/recordrtc-nodejs-1.0.0.tgz",
-  "readme": "ERROR: No README data found!"
+  "readme": "ERROR: No README data found!",
+  "dependencies": {
+    "aws-sdk": "^2.0.29"
+  }
 }

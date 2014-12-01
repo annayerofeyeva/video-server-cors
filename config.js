@@ -6,9 +6,9 @@ exports.port = 8000;
 exports.upload_dir = './uploads';
 
 exports.s3 = {
-    key: '',
-    secret: '',
-    bucket: ''
+    key: 'AKIAJDDPVA2EP3A4ELPQ',
+    secret: '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',
+    bucket: 'stackovertube'
 };
 
-exports.s3_enabled = false;
+exports.s3_enabled = true;

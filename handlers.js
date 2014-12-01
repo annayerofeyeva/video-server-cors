@@ -5,7 +5,10 @@
 var config = require('./config'),
     fs = require('fs'),
     sys = require('sys'),
-    exec = require('child_process').exec;
+    exec = require('child_process').exec,
+    AWS = require('aws-sdk');
+
+var sThree = new AWS.S3();
 
 function home(response) {
     response.writeHead(200, {
@@ -53,7 +56,7 @@ function merge(response, files) {
 }
 
 function _upload(response, file) {
-    console.log('this is the format of the file', file)
+    // console.log('this is the format of the file', file)
     
     var fileRootName = file.name.split('.').shift(),
         fileExtension = file.name.split('.').pop(),
@@ -72,6 +75,35 @@ function _upload(response, file) {
 
     fileBuffer = new Buffer(file.contents, "base64");
 
+    // var uploadAws = ({Bucket: config.s3.bucket, Key: "Anna.webm", Body: "file.contents"})
+
+    // sThree.putObject(uploadAws)
+
+  //   var s3bucket = new AWS.S3({params: {Bucket: 'stackovertubeTwo'}});
+  //       s3bucket.createBucket(function() {
+  //       var data = {Key: 'myKey', Body: 'Hello!'};
+  //       console.log("before s3")
+  //       s3bucket.putObject(data, function(err, data) {
+  //   if (err) {
+  //     console.log("Error uploading data: ", err);
+  //   } else {
+  //     console.log("Successfully uploaded data to myBucket/myKey");
+  //   }
+  // });
+
+
+    sThree.putObject(({Bucket: 'stackovertubeTwo', Key: "anna_" + Math.floor(Math.random() * 10000) + ".webm", Body: fileBuffer}), function(err, data) {
+    if (err) {
+      console.log("Error uploading data: ", err);
+    } else {
+      console.log("Successfully uploaded data to myBucket/myKey");
+    }
+  });
+// });
+
+
+
+    
     fs.writeFileSync(filePath, fileBuffer);
 }
 
