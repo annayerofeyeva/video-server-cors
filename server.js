@@ -24,7 +24,7 @@ function start(route, handle) {
         });
     }
 
-    http.createServer(onRequest).listen(config.port);
+    http.createServer(onRequest).listen(8000);
 }
 
 exports.start = start;

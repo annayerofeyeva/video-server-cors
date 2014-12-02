@@ -6,7 +6,8 @@ var config = require('./config'),
     fs = require('fs'),
     sys = require('sys'),
     exec = require('child_process').exec,
-    AWS = require('aws-sdk');
+    AWS = require('aws-sdk'),
+    request = require('request')
 
 var sThree = new AWS.S3();
 
@@ -56,55 +57,22 @@ function merge(response, files) {
 }
 
 function _upload(response, file) {
-    // console.log('this is the format of the file', file)
-    
-    var fileRootName = file.name.split('.').shift(),
-        fileExtension = file.name.split('.').pop(),
-        filePathBase = config.upload_dir + '/',
-        fileRootNameWithBase = filePathBase + fileRootName,
-        filePath = fileRootNameWithBase + '.' + fileExtension,
-        fileID = 2,
-        fileBuffer;
-
-    while (fs.existsSync(filePath)) {
-        filePath = fileRootNameWithBase + '(' + fileID + ').' + fileExtension;
-        fileID += 1;
-    }
-
     file.contents = file.contents.split(',').pop();
-
     fileBuffer = new Buffer(file.contents, "base64");
 
-    // var uploadAws = ({Bucket: config.s3.bucket, Key: "Anna.webm", Body: "file.contents"})
-
-    // sThree.putObject(uploadAws)
-
-  //   var s3bucket = new AWS.S3({params: {Bucket: 'stackovertubeTwo'}});
-  //       s3bucket.createBucket(function() {
-  //       var data = {Key: 'myKey', Body: 'Hello!'};
-  //       console.log("before s3")
-  //       s3bucket.putObject(data, function(err, data) {
-  //   if (err) {
-  //     console.log("Error uploading data: ", err);
-  //   } else {
-  //     console.log("Successfully uploaded data to myBucket/myKey");
-  //   }
-  // });
-
-
-    sThree.putObject(({Bucket: 'stackovertubeTwo', Key: "anna_" + Math.floor(Math.random() * 10000) + ".webm", Body: fileBuffer}), function(err, data) {
-    if (err) {
-      console.log("Error uploading data: ", err);
-    } else {
-      console.log("Successfully uploaded data to myBucket/myKey");
-    }
-  });
-// });
-
-
-
-    
-    fs.writeFileSync(filePath, fileBuffer);
+    sThree.putObject(({Bucket: 'stackovertubeTwo', Key: file.name+'webm', Body: fileBuffer}), function(err, data) {
+        if (err) {
+          console.log("Error uploading data: ", err);
+        } else {
+          var video = { link: 'https://s3.amazonaws.com/stackovertubeTwo/'+file.name, questionId: file.name.split('_')[1], author: file.author};
+          request.post({url: 'https://overtube-backend.herokuapp.com/postreply', form: video}, function(err, res) {
+            console.log(res.body);
+            console.log(err);
+          });
+          console.log(file.name.split('_')[1]);
+          console.log("Successfully uploaded data to aws");
+        }
+    });
 }
 
 function serveStatic(response, pathname) {
