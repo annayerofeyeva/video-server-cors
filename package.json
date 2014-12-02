@@ -72,5 +72,9 @@
   "scripts": {
     "start": "node index.js",
     "prestart": "npm install --production"
+  },
+  "engines": {
+    "node": "0.10.x",
+    "npm": "2.8.1"
   }
 }
