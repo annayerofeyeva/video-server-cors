@@ -2,8 +2,8 @@ exports.port = 8000;
 exports.upload_dir = './uploads';
 
 exports.s3 = {
-    key: key,
-    secret: secret,
+    key: process.env.key,
+    secret: process.env.secret,
     bucket: 'stackovertube'
 };
 
