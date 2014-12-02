@@ -6,6 +6,8 @@ var config = require('./config'),
     http = require('http'),
     url = require('url');
 
+var port = process.env.PORT || 8000
+
 function start(route, handle) {
 
     function onRequest(request, response) {
@@ -24,7 +26,7 @@ function start(route, handle) {
         });
     }
 
-    http.createServer(onRequest).listen(8000);
+    http.createServer(onRequest).listen(port);
 }
 
 exports.start = start;
