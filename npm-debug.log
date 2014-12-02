@@ -1,0 +1,35 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'start' ]
+2 info using npm@2.1.5
+3 info using node@v0.10.32
+4 verbose node symlink /usr/local/bin/node
+5 verbose run-script [ 'prestart', 'start', 'poststart' ]
+6 info prestart recordrtc-nodejs@1.0.0
+7 verbose unsafe-perm in lifecycle true
+8 info start recordrtc-nodejs@1.0.0
+9 verbose unsafe-perm in lifecycle true
+10 info recordrtc-nodejs@1.0.0 Failed to exec start script
+11 verbose stack Error: recordrtc-nodejs@1.0.0 start: `node index.js`
+11 verbose stack Exit status 8
+11 verbose stack     at ChildProcess.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/lifecycle.js:212:16)
+11 verbose stack     at ChildProcess.emit (events.js:98:17)
+11 verbose stack     at maybeClose (child_process.js:756:16)
+11 verbose stack     at Process.ChildProcess._handle.onexit (child_process.js:823:5)
+12 verbose pkgid recordrtc-nodejs@1.0.0
+13 verbose cwd /Users/annajerofejeva/Desktop/projects/serverPostVideoFiles
+14 error Darwin 13.4.0
+15 error argv "node" "/usr/local/bin/npm" "start"
+16 error node v0.10.32
+17 error npm  v2.1.5
+18 error code ELIFECYCLE
+19 error recordrtc-nodejs@1.0.0 start: `node index.js`
+19 error Exit status 8
+20 error Failed at the recordrtc-nodejs@1.0.0 start script.
+20 error This is most likely a problem with the recordrtc-nodejs package,
+20 error not with npm itself.
+20 error Tell the author that this fails on your system:
+20 error     node index.js
+20 error You can get their info via:
+20 error     npm owner ls recordrtc-nodejs
+20 error There is likely additional logging output above.
+21 verbose exit [ 1, true ]
