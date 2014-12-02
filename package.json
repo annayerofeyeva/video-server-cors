@@ -68,5 +68,9 @@
   "dependencies": {
     "aws-sdk": "^2.0.29",
     "request": "^2.49.0"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "prestart": "npm install --production"
   }
 }
