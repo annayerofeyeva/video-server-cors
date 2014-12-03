@@ -14,9 +14,18 @@ function start(route, handle) {
 
     function onRequest(request, response) {
 
-          response.header('Access-Control-Allow-Origin', '*');
-          response.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-          response.header('Access-Control-Allow-Headers', 'Content-Type, Authorization')
+          // response.header('Access-Control-Allow-Origin', '*');
+          // response.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+          // response.header('Access-Control-Allow-Headers', 'Content-Type, Authorization')
+          response.writeHead(
+            "200",
+            "OK",
+            {
+                'Access-Control-Allow-Origin', '*',
+                "content-type": "text/plain",
+                "content-length": responseBody.length
+            }
+            );
 
 
         var pathname = url.parse(request.url).pathname,
