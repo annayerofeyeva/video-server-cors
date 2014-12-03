@@ -8,12 +8,20 @@ var config = require('./config'),
 
 var port = process.env.PORT || 8000
 
+
+
 function start(route, handle) {
 
     function onRequest(request, response) {
 
+        res.header('Access-Control-Allow-Origin', '*');
+      res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+      res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization')
+
         var pathname = url.parse(request.url).pathname,
             postData = '';
+
+
 
         request.setEncoding('utf8');
 
