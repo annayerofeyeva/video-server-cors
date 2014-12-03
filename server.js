@@ -79,13 +79,7 @@ function start(route, handle) {
         // response.end()
         request.addListener('end', function() {
 
-            var origin = (request.headers.origin || "*");
-            // var requestBodyBuffer = [];
-            // var requestBody = requestBodyBuffer.join( "" );
-            var responseBody = (
-                "Thank You For The Cross-Domain AJAX Request:\n\n"
-                
-            );
+          
 
             response.writeHead(
                 "200",
