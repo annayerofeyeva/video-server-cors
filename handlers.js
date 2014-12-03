@@ -13,6 +13,8 @@ var sThree = new AWS.S3();
 
 function home(response) {
     response.writeHead(200, {
+        "Access-Control-Allow-Origin": '*',
+        'Access-Control-Allow-Methods': 'POST',
         'Content-Type': 'text/html'
     });
     response.end(fs.readFileSync('./static/index.html'));
@@ -31,7 +33,10 @@ function upload(response, postData) {
 
     if (files.uploadOnlyAudio) {
         response.statusCode = 200;
-        response.writeHead(200, { 'Content-Type': 'application/json' });
+        response.writeHead(200, { 
+            "Access-Control-Allow-Origin": '*',
+                    'Access-Control-Allow-Methods': 'POST',
+            'Content-Type': 'application/json' });
         response.end(files.audio.name);
     }
 
@@ -124,6 +129,8 @@ function ifWin(response, files) {
         } else {
             response.statusCode = 200;
             response.writeHead(200, {
+                "Access-Control-Allow-Origin": '*',
+                    'Access-Control-Allow-Methods': 'POST',
                 'Content-Type': 'application/json'
             });
             response.end(files.audio.name.split('.')[0] + '-merged.webm');
@@ -157,6 +164,8 @@ function ifMac(response, files) {
         } else {
             response.statusCode = 200;
             response.writeHead(200, {
+                "Access-Control-Allow-Origin": '*',
+                    'Access-Control-Allow-Methods': 'POST',
                 'Content-Type': 'application/json'
             });
             response.end(files.audio.name.split('.')[0] + '-merged.webm');
