@@ -24,8 +24,7 @@ function start(route, handle) {
                 'Access-Control-Allow-Origin': '*',
                 'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE',
                 'Access-Control-Allow-Headers': 'Content-Type, Authorization',
-                "content-type": "text/plain",
-                "content-length": responseBody.length
+                "content-type": "text/plain"
             }
             );
 
