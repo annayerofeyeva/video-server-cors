@@ -22,8 +22,10 @@ function start(route, handle) {
             "OK",
             {
                 'Access-Control-Allow-Origin', '*',
+                'Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE',
+                'Access-Control-Allow-Headers', 'Content-Type, Authorization',
                 "content-type": "text/plain",
-                "content-length": responseBody.length
+                "content-length": "responseBody.length"
             }
             );
 
@@ -42,6 +44,8 @@ function start(route, handle) {
         request.addListener('end', function() {
             route(handle, pathname, response, postData);
         });
+
+        response.end()
     }
 
     http.createServer(onRequest).listen(port);
