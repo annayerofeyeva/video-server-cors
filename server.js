@@ -21,9 +21,9 @@ function start(route, handle) {
             "200",
             "OK",
             {
-                'Access-Control-Allow-Origin', '*',
-                'Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE',
-                'Access-Control-Allow-Headers', 'Content-Type, Authorization',
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE',
+                'Access-Control-Allow-Headers': 'Content-Type, Authorization',
                 "content-type": "text/plain",
                 "content-length": "responseBody.length"
             }
