@@ -17,8 +17,17 @@ function home(response) {
         'Access-Control-Allow-Methods': 'POST',
         'Content-Type': 'text/html'
     });
-    response.end(fs.readFileSync('./static/index.html'));
+    response.end(fs.readFileSync('./static/google2f8123364389b536.html'));
 }
+
+// function google2f8123364389b536(response) {
+//     response.writeHead(200, {
+//         "Access-Control-Allow-Origin": '*',
+//         'Access-Control-Allow-Methods': 'POST',
+//         'Content-Type': 'text/html'
+//     });
+//     response.end(fs.readFileSync('./static/google2f8123364389b536.html'));
+// }
 
 // this function uploads files
 
