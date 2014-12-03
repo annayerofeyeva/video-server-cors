@@ -27,6 +27,7 @@ function start(route, handle) {
           //       "content-type": "text/plain"
           //   }
           //   );
+    var requestBodyBuffer = [];
 
 request.on(
             "end",
