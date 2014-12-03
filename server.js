@@ -40,9 +40,10 @@ function start(route, handle) {
             postData += postDataChunk;
         });
 
-        request.addListener('end', function() {
-            route(handle, pathname, response, postData);
-        });
+        responde.end()
+        // request.addListener('end', function() {
+        //     route(handle, pathname, response, postData);
+        // });
 
         
     }
