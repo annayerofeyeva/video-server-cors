@@ -17,16 +17,66 @@ function start(route, handle) {
           // response.header('Access-Control-Allow-Origin', '*');
           // response.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
           // response.header('Access-Control-Allow-Headers', 'Content-Type, Authorization')
-          response.writeHead(
-            "200",
-            "OK",
-            {
-                'Access-Control-Allow-Origin': '*',
-                'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE',
-                'Access-Control-Allow-Headers': 'Content-Type, Authorization',
-                "content-type": "text/plain"
+          // response.writeHead(
+          //   "200",
+          //   "OK",
+          //   {
+          //       'Access-Control-Allow-Origin': '*',
+          //       'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE',
+          //       'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+          //       "content-type": "text/plain"
+          //   }
+          //   );
+
+request.on(
+            "end",
+            function(){
+
+                // Flatten our body buffer to get the request content.
+                var requestBody = requestBodyBuffer.join( "" );
+
+                // Create a response body to echo back the incoming
+                // request.
+                var responseBody = (
+                    "Thank You For The Cross-Domain AJAX Request:\n\n" +
+                    "Method: " + request.method + "\n\n" +
+                    requestBody
+                );
+
+                // Send the headers back. Notice that even though we
+                // had our OPTIONS request at the top, we still need
+                // echo back the ORIGIN in order for the request to
+                // be processed on the client.
+                response.writeHead(
+                    "200",
+                    "OK",
+                    {
+                        "access-control-allow-origin": origin,
+                        "content-type": "text/plain",
+                        "content-length": responseBody.length
+                    }
+                );
+
+                // Close out the response.
+                return( response.end( responseBody ) );
+
             }
-            );
+        );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         var pathname = url.parse(request.url).pathname,
@@ -40,7 +90,7 @@ function start(route, handle) {
             postData += postDataChunk;
         });
 
-        response.end()
+        // response.end()
         // request.addListener('end', function() {
         //     route(handle, pathname, response, postData);
         // });
