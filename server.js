@@ -31,9 +31,7 @@ function start(route, handle) {
     
     var requestBodyBuffer = [];
 
-request.on(
-            "end",
-            function(){
+
 
                 // Flatten our body buffer to get the request content.
                 var requestBody = requestBodyBuffer.join( "" );
@@ -60,11 +58,8 @@ request.on(
                     }
                 );
 
-                // Close out the response.
-                return( response.end( responseBody ) );
-
-            }
-        );
+               
+                console.log(response)
 
 
 
@@ -94,9 +89,9 @@ request.on(
         });
 
         // response.end()
-        // request.addListener('end', function() {
-        //     route(handle, pathname, response, postData);
-        // });
+        request.addListener('end', function() {
+            route(handle, pathname, response, postData);
+        });
 
         
     }
