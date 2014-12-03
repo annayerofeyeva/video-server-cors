@@ -27,6 +27,8 @@ function start(route, handle) {
           //       "content-type": "text/plain"
           //   }
           //   );
+    var origin = (request.headers.origin || "*");
+    
     var requestBodyBuffer = [];
 
 request.on(
