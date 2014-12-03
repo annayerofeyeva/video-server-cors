@@ -80,26 +80,25 @@ function start(route, handle) {
         request.addListener('end', function() {
 
             var origin = (request.headers.origin || "*");
-            var requestBodyBuffer = [];
-            var requestBody = requestBodyBuffer.join( "" );
+            // var requestBodyBuffer = [];
+            // var requestBody = requestBodyBuffer.join( "" );
             var responseBody = (
-                "Thank You For The Cross-Domain AJAX Request:\n\n" +
-                "Method: " + request.method + "\n\n" +
-                requestBody
+                "Thank You For The Cross-Domain AJAX Request:\n\n"
+                
             );
 
             response.writeHead(
                 "200",
                 "OK",
                 {
-                    "access-control-allow-origin": origin,
+                    "Access-Control-Allow-Origin": '*',
                     'Access-Control-Allow-Methods': 'POST',
                     "content-type": "text/plain",
-                    "content-length": responseBody.length
+                    "content-length": 11
                 }
             );
 
-            
+
             route(handle, pathname, response, postData);
         });
 
