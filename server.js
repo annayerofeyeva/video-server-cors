@@ -81,16 +81,16 @@ function start(route, handle) {
 
           
 
-            response.writeHead(
-                "200",
-                "OK",
-                {
-                    "Access-Control-Allow-Origin": '*',
-                    'Access-Control-Allow-Methods': 'POST',
-                    "content-type": "text/plain",
-                    "content-length": 11
-                }
-            );
+            // response.writeHead(
+            //     "200",
+            //     "OK",
+            //     {
+            //         "Access-Control-Allow-Origin": '*',
+            //         'Access-Control-Allow-Methods': 'POST',
+            //         "content-type": "text/plain",
+            //         "content-length": 11
+            //     }
+            // );
 
 
             route(handle, pathname, response, postData);

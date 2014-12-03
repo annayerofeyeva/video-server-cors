@@ -3,7 +3,16 @@
 // Source Code   - github.com/muaz-khan/WebRTC-Experiment/tree/master/RecordRTC/RecordRTC-to-Nodejs
 
 function respondWithHTTPCode(response, code) {
-    response.writeHead(code, { 'Content-Type': 'text/plain' });
+    response.writeHead(
+                "200",
+                "OK",
+                {
+                    "Access-Control-Allow-Origin": '*',
+                    'Access-Control-Allow-Methods': 'POST',
+                    "content-type": "text/plain",
+                    "content-length": 11
+                }
+            );
     response.end();
 }
 
